@@ -5,13 +5,13 @@ console.log(typeof bill);
 
 //getting tip
 
-let  tip=0;
+let  tip=0.0;
 let buttons=document.querySelectorAll('.tip-button');
 // console.log(buttons);
 buttons.forEach(button =>{
     button.addEventListener('click',()=>{
         console.log(button.value);
-        tip=(button.value);
+        tip = button.value;
         buttons.forEach(ele=>{
             ele.classList.remove('tip-button-active')
         })
@@ -51,22 +51,23 @@ console.log(typeof NoOfPerson);
 // let totalPersons=parseInt(document.querySelector('.people').innerHTML);
 // console.log(totalPersons);
 
-let tipAmount = Math.floor(((tip / 100) * bill) / NoOfPerson)
+let tipAmount=0.0;
+tipAmount = parseFloat((bill * tip) / 100);
 console.log(tipAmount);
 
-let tipAmountPerPerson=tipAmount/NoOfPerson;
+// let tipAmountPerPerson=tipAmount/NoOfPerson;
 
 
 
-console.log(tipAmountPerPerson);
-let totalBillPerPerson=(bill/NoOfPerson) +(tipAmount/NoOfPerson) 
-console.log(totalBillPerPerson);
+// console.log(tipAmountPerPerson);
+// let totalBillPerPerson=(bill/NoOfPerson) +(tipAmount/NoOfPerson) 
+// console.log(totalBillPerPerson);
 
 let generateBill=document.querySelector('.generate');
 
 
 generateBill.addEventListener('click',()=>{
-    document.querySelector('.tip-amount').innerHTML=tipAmountPerPerson;
-    document.querySelector('.total').innerHTML=totalBillPerPerson;
+    document.querySelector('.tip-amount').innerHTML=((tip*bill)/100)/NoOfPerson;
+    document.querySelector('.total').innerHTML=(bill/NoOfPerson)+ ((tip*bill)/100)/NoOfPerson;
 })
 
